@@ -34,3 +34,17 @@
   padding: 20px;
   cursor: pointer;
 }
+
+.Menu{
+  min-height: 80px;
+}
+@media all and (min-width:850px){
+  .Menu{
+    margin-top: -100px;
+  }
+}
+@media all and (max-width:850px){
+  .Menu{
+    margin-top: -70px;
+  }
+}
