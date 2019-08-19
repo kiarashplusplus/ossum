@@ -2,17 +2,22 @@ import React, { Component } from "react";
 import ScrollMenu from "react-horizontal-scrolling-menu";
 import { Player } from "video-react";
 import { filter } from "lodash";
+import Hls from "hls.js";
+import HLSSource from "./HLSSource";
 import "./App.css";
 
-const ossumVideosUrl = "https://ossum-tv.firebaseapp.com/videos/";
+const ossumVideosUrl = "https://res.cloudinary.com/ossum/video/upload/";
+const ossumImageUrl = "https://res.cloudinary.com/ossum/image/upload/";
+
 const videos = {
   Bridge: {
-    video: "Bridge In Place.mp4",
-    cover: "Bridge In Place.jpg",
+    video: "v1565908181/Bridge_In_Place_bfubzg.mp4",
+    hls: "v1565908181/Bridge_In_Place_bfubzg.m3u8",
+    cover: "v1565816228/Bridge_In_Place_xga1ot.jpg",
     buttons: [
       {
-        startTime: 2,
-        endTime: 10,
+        startTime: 0,
+        endTime: 1000,
         name: "Sunrise"
       },
       {
@@ -23,8 +28,9 @@ const videos = {
     ]
   },
   Sunrise: {
-    video: "coverr-sunrise-1563948708950.mp4",
-    cover: "coverr-sunrise-1563948708950.jpg",
+    video: "v1565908175/coverr-sunrise-1563948708950_oqeaic.mp4",
+    hls: "v1565908175/coverr-sunrise-1563948708950_oupdpu.m3u8",
+    cover: "v1565816229/coverr-sunrise-1563948708950_li2su1.jpg",
     buttons: [
       {
         startTime: 0,
@@ -34,8 +40,9 @@ const videos = {
     ]
   },
   Beach: {
-    video: "coverr-bali-beach-overhead-1563969579253.mp4",
-    cover: "coverr-bali-beach-overhead-1563969579253.jpg"
+    video: "v1565908176/coverr-bali-beach-overhead-1563969579253_xooqgl.mp4",
+    hls: "v1565908176/coverr-bali-beach-overhead-1563969579253_xooqgl.m3u8",
+    cover: "v1565816227/coverr-bali-beach-overhead-1563969579253_puhw3l.jpg"
   }
 };
 
@@ -83,21 +90,12 @@ class App extends Component {
   };
 
   render() {
-    const { video, cover } = videos[this.state.selected];
+    const { video, hls, cover } = videos[this.state.selected];
+    const isHlsSupported = Hls.isSupported();
 
     return (
       <div className="App">
         <header className="App-header">
-          <Player
-            ref={player => {
-              this.player = player;
-            }}
-            autoPlay
-            playsInline
-            poster={ossumVideosUrl + cover}
-            src={ossumVideosUrl + video}
-            preload="auto"
-          />
           <div className="Menu">
             <ScrollMenu
               data={Menu(this.state.buttons, this.state.selected)}
@@ -106,6 +104,29 @@ class App extends Component {
               onSelect={this.onSelect}
             />
           </div>
+          {isHlsSupported ? (
+            <Player
+              ref={player => {
+                this.player = player;
+              }}
+              autoPlay
+              playsInline
+              preload="auto"
+            >
+              <HLSSource isVideoChild src={ossumVideosUrl + hls} />
+            </Player>
+          ) : (
+            <Player
+              ref={player => {
+                this.player = player;
+              }}
+              autoPlay
+              playsInline
+              poster={ossumImageUrl + cover}
+              rc={ossumVideosUrl + video}
+              preload="auto"
+            ></Player>
+          )}
         </header>
       </div>
     );

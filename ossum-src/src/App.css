@@ -37,6 +37,7 @@
 
 .Menu{
   min-height: 80px;
+  z-index: 10;
 }
 @media all and (min-width:850px){
   .Menu{

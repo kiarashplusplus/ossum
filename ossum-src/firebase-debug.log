@@ -1,0 +1,25 @@
+[debug] [2019-08-19T16:19:57.297Z] ----------------------------------------------------------------------
+[debug] [2019-08-19T16:19:57.300Z] Command:       /Users/kiarash/.nvm/versions/node/v12.4.0/bin/node /Users/kiarash/.nvm/versions/node/v12.4.0/bin/firebase serve
+[debug] [2019-08-19T16:19:57.300Z] CLI Version:   7.0.0
+[debug] [2019-08-19T16:19:57.300Z] Platform:      darwin
+[debug] [2019-08-19T16:19:57.300Z] Node Version:  v12.4.0
+[debug] [2019-08-19T16:19:57.301Z] Time:          Mon Aug 19 2019 12:19:57 GMT-0400 (Eastern Daylight Time)
+[debug] [2019-08-19T16:19:57.301Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-08-19T16:19:57.311Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-19T16:19:57.311Z] > authorizing via signed-in user
+[debug] [2019-08-19T16:19:57.311Z] [iam] checking project ossum-tv for permissions ["firebase.projects.get"]
+[debug] [2019-08-19T16:19:57.312Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/ossum-tv:testIamPermissions  
+
+[debug] [2019-08-19T16:19:57.594Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-19T16:19:57.597Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/ossum-tv  
+ 
+[debug] [2019-08-19T16:19:57.869Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/kiarash/Code/ossum/ossum-src'...
+[info] 
+[debug] [2019-08-19T16:19:57.871Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/701226394338/clients/_:getWebAppConfig  
+ 
+[debug] [2019-08-19T16:19:58.114Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] ✔  hosting: Local server: http://localhost:5000
