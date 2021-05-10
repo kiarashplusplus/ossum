@@ -5,7 +5,7 @@
   "dependencies": {
     "cloudinary": "^1.14.0",
     "hls.js": "^0.12.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-horizontal-scrolling-menu": "^0.7.3",
