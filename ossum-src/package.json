@@ -9,7 +9,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-horizontal-scrolling-menu": "^0.7.3",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "redux": "^4.0.4",
     "video-react": "^0.14.1"
   },
